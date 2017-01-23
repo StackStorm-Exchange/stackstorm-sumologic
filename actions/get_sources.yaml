@@ -1,0 +1,12 @@
+---
+# Action definition metadata
+name: "get.sources"
+description: "Get a list of sources by ID of collector."
+runner_type: "python-script"
+enabled: true
+entry_point: "get_sources.py"
+parameters:
+  collector_id:
+    type: "integer"
+    required: true
+    description: "ID of the collectors to get sources for."
