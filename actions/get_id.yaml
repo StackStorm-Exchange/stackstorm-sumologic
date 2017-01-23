@@ -1,0 +1,12 @@
+---
+# Action definition metadata
+name: "get.id"
+description: "Get ID or IDs of collectors."
+runner_type: "python-script"
+enabled: true
+entry_point: "get_id.py"
+parameters:
+  keyword:
+    type: "string"
+    required: true
+    description: "Name of the collectors to search for."
