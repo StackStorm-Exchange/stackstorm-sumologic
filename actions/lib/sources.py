@@ -4,7 +4,7 @@ import requests
 class Sources(object):
     """ This object acts upon the sources """
 
-    def __init__(self, auth, collector_id, api='/collectors', **kwargs):
+    def __init__(self, auth, collector_id, api='/collectors'):
         """Access sumologic Sources.
         Args:
             auth (Auth): Authentication object
