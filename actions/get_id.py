@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-from lib.actions import BaseAction, MyCollectors
+from lib.actions import BaseAction
+from lib.mycollectors import MyCollectors
 
 
 class SumoGetId(BaseAction):
