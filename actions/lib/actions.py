@@ -5,7 +5,6 @@ from sumologic import Client
 
 __all__ = [
     'BaseAction',
-    'MyCollectors'
 ]
 
 

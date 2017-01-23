@@ -1,5 +1,9 @@
 from sumologic import Collectors
 
+__all__ = [
+    'MyCollectors'
+]
+
 
 class MyCollectors(Collectors):
     def find_sub(self, name):
