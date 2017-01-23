@@ -19,7 +19,7 @@ class Sources(object):
         try:
             self.url = '%s%s' % (auth.get_url(), self.api)
         except AttributeError:
-            self.url = 'https://api.sumologic.com/api/v1/collectors/%d/sources' % self.collector_id
+            self.url = 'https://api.sumologic.com/api/v1%s' % self.api
 
         try:
             self.auth = auth.get_auth()
@@ -28,6 +28,5 @@ class Sources(object):
 
     def get(self):
         """Return a dict of a source."""
-
-        request = requests.get(self.url, auth=self.auth)
+        request = requests.get('%s/%d/sources' % (self.url, self.collector_id), auth=self.auth)
         return request.json()
