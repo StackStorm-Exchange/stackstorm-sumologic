@@ -3,7 +3,9 @@
     description: "SumoLogic Access ID"
     type: "string"
     default: ""
+    secret: true
   sumologic_access_key:
     description: "SumoLogic Access Key"
     type: "string"
     default: ""
+    secret: true
