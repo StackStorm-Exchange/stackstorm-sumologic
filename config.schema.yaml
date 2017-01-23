@@ -1,0 +1,9 @@
+---
+  sumologic_access_id:
+    description: "SumoLogic Access ID"
+    type: "string"
+    default: ""
+  sumologic_access_key:
+    description: "SumoLogic Access Key"
+    type: "string"
+    default: ""
