@@ -39,7 +39,7 @@ parameters:
     description: "Name of the source."
   path_expression:
     type: "string"
-    required: true
+    required: false
     description: "Path expression."
   source_type:
     type: "string"
