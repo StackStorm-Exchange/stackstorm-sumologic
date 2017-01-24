@@ -45,6 +45,7 @@ parameters:
     type: "string"
     required: false
     default: "LocalFile"
+    pattern: "(LocalFile|RemoteFileV2|SystemStats)"
     description: "Source type."
   auto_line_matching:
     type: "boolean"
