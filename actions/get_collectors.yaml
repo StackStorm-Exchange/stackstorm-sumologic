@@ -10,3 +10,8 @@ parameters:
     type: "string"
     required: true
     description: "Name of the collectors to search for."
+  exact_match:
+    type: "boolean"
+    required: false
+    default: false
+    description: "Search with exact match or occurrence of the keyword."

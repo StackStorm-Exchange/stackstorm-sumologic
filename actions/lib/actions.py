@@ -1,7 +1,7 @@
 # Base Action Class
 
 from st2actions.runners.pythonrunner import Action
-from sumologic import Client
+from sumologic import SumoLogic
 
 __all__ = [
     'BaseAction',
@@ -21,4 +21,4 @@ class BaseAction(Action):
         if self.sumologic_access_key is None or self.sumologic_access_id is None:
             self._client = None
         else:
-            self._client = Client(auth=(self.sumologic_access_id, self.sumologic_access_key))
+            self._client = SumoLogic(self.sumologic_access_id, self.sumologic_access_key)
