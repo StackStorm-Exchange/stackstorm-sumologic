@@ -59,6 +59,8 @@ class SumoUpdateSource(BaseAction):
                 params['timeZone'] = timezone
             if category is not None:
                 params['category'] = category
+            if name is not None:
+                params['name'] = name
             if descr is not None:
                 params['description'] = descr
             if force_timezone is not None:
