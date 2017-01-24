@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 from lib.actions import BaseAction
-from lib.sources import Sources
 
 
 class SumoGetSources(BaseAction):
@@ -14,10 +13,6 @@ class SumoGetSources(BaseAction):
             self.logger.debug('No Access ID or Key is configured. Please, configure.')
             return False, result
 
-        sources = Sources(self._client, collector_id=collector_id)
-        src = sources.get()
-        if src.get("sources") is not None:
-            all_sources = src["sources"]
-            return True, all_sources
-        else:
-            return True, []
+        collector = self._client.collector(collector_id)
+        sources = self._client.sources(collector['id'])
+        return True, sources
