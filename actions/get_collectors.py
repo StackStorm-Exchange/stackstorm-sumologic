@@ -12,6 +12,6 @@ class SumoGetCollectors(BaseAction):
             self.logger.debug('No Access ID or Key is configured. Please, configure.')
             return False, result
 
-        collectors = self._client.collectors()
+        collectors = self._client.collectors(10000)
         c = lib.utils.find_by_field(collectors, 'name', keyword, exact_match)
         return True, c
