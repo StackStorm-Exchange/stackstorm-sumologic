@@ -36,7 +36,7 @@ parameters:
     description: "Hostname for the source."
   name:
     type: "string"
-    required: true
+    required: false
     description: "Name of the source."
   path_expression:
     type: "string"
