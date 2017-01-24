@@ -13,7 +13,7 @@ class SumoGetCollector(BaseAction):
             self.logger.debug('No Access ID or Key is configured. Please, configure.')
             return False, {}
 
-        collectors = self._client.collectors()
+        collectors = self._client.collectors(10000)
 
         if collector_id is not None and collector_id > 0:
             c = lib.utils.find_by_field(collectors, 'id', collector_id, True)
