@@ -13,6 +13,5 @@ class SumoGetSources(BaseAction):
             self.logger.debug('No Access ID or Key is configured. Please, configure.')
             return False, result
 
-        collector = self._client.collector(collector_id)
-        sources = self._client.sources(collector['id'])
+        sources = self._client.sources(collector_id)
         return True, sources
