@@ -14,7 +14,6 @@ class SumoUpdateSource(BaseAction):
             hostname=None,
             name=None,
             path_expression=None,
-            source_type=None,
             auto_line_matching=None,
             alive=None,
             automatic_date_parsing=None,
@@ -23,8 +22,7 @@ class SumoUpdateSource(BaseAction):
             manual_prefix_regexp=None,
             content_type=None,
             metrics=None,
-            interval=None,
-            cutoff_timestamp=None):
+            interval=None):
 
         self.logger.debug('collector_id: %d', collector_id)
         self.logger.debug('source_id: %d', source_id)
@@ -43,16 +41,6 @@ class SumoUpdateSource(BaseAction):
         if source_id is None:
             self.logger.debug('No source ID was provided.')
             result['status'] = 'No source ID was provided.'
-            return False, result
-
-        if source_type == 'LocalFile' and path_expression is None:
-            self.logger.debug('No file path was provided for source type LocalFile.')
-            result['status'] = 'Failed: No file path was provided for source type LocalFile.'
-            return False, result
-
-        if source_type == 'SystemStats' and (metrics is None or len(metrics) < 1):
-            self.logger.debug('No metrics provided for source type SystemStats.')
-            result['status'] = 'Failed: No metrics provided for source type SystemStats.'
             return False, result
 
         src_o, etag = self._client.source(collector_id, source_id)
@@ -89,8 +77,6 @@ class SumoUpdateSource(BaseAction):
                 params['metrics'] = metrics
             if interval is not None:
                 params['interval'] = interval
-            if cutoff_timestamp is not None:
-                params['cutoffTimestamp'] = cutoff_timestamp
 
             data = {'source': params}
             res = self._client.update_source(collector_id, data, etag)

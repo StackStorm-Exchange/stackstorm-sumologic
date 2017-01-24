@@ -42,10 +42,6 @@ parameters:
     type: "string"
     required: false
     description: "Path expression."
-  source_type:
-    type: "string"
-    required: false
-    description: "Source type."
   auto_line_matching:
     type: "boolean"
     required: false
@@ -82,7 +78,3 @@ parameters:
     type: "integer"
     required: false
     description: "Interval."
-  cutoff_timestamp:
-    type: "integer"
-    required: false
-    description: "Cutoff timestamp."
