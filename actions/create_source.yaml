@@ -45,6 +45,7 @@ parameters:
     type: "string"
     required: false
     default: "LocalFile"
+    pattern: "(LocalFile|RemoteFileV2|SystemStats)"
     description: "Source type."
   auto_line_matching:
     type: "boolean"
@@ -91,3 +92,32 @@ parameters:
     type: "array"
     required: false
     description: "Comma-separated list of valid path expressions from which logs will not be collected."
+  remote_hosts:
+    type: "array"
+    required: false
+    description: "Host name of remote machine(s)."
+  remote_port:
+    type: "integer"
+    required: false
+    description: "Port of remote machine (SSH)."
+  remote_user:
+    type: "string"
+    required: false
+    description: "User account to connect with the remote machine."
+  remote_password:
+    type: "string"
+    required: false
+    description: "Password used to connect to remote machine. Required only when authMethod is set to password."
+  key_path:
+    type: "string"
+    required: false
+    description: "Path to SSH key used to connect to the remote machine. Required only when authMethod is set to key."
+  key_password:
+    type: "string"
+    required: false
+    description: "Password to SSH key to connect to the remote machine, required only with authMethod is set to key."
+  auth_method:
+    type: "string"
+    required: false
+    description: "Authentication method used to connect to the remote machine. Options are \"password\" to connect with a password, or \"key\" to connect with an SSH key."
+

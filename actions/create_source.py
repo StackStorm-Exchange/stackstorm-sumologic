@@ -23,6 +23,13 @@ class SumoCreateSource(BaseAction):
             metrics=None,
             interval=None,
             blacklist=None,
+            remote_hosts=None,
+            remote_port=None,
+            remote_user=None,
+            remote_password=None,
+            key_path=None,
+            key_password=None,
+            auth_method=None,
             cutoff_timestamp=None):
 
         self.logger.debug('collector_id: %d', collector_id)
@@ -48,9 +55,30 @@ class SumoCreateSource(BaseAction):
             result['status'] = 'Failed: No file path was provided for source type LocalFile.'
             return False, result
 
-        if source_type == 'SystemStats' and (metrics is None or len(metrics) < 1):
-            self.logger.debug('No metrics provided for source type SystemStats.')
-            result['status'] = 'Failed: No metrics provided for source type SystemStats.'
+        if source_type == 'RemoteFileV2' and (remote_hosts is None or remote_port is None or remote_user is None):
+            self.logger.debug('No remote host/port or user was provided for source type RemoteFileV2.')
+            result['status'] = 'Failed: No remote host/port or user was provided for source type RemoteFileV2.'
+            return False, result
+        elif source_type == 'RemoteFileV2' and (auth_method is None or auth_method != 'password' or auth_method != 'key'):
+            self.logger.debug('Cannot recognize auth method for source type RemoteFileV2. Can be password or key only.')
+            result['status'] = 'Failed: Cannot recognize auth method for source type RemoteFileV2. Can be password or key only.'
+            return False, result
+        elif source_type == 'RemoteFileV2' and auth_method == 'password' and remote_password is None:
+            self.logger.debug('Password was not provided when auth method is password.')
+            result['status'] = 'Failed: Password was not provided when auth method is password.'
+            return False, result
+        elif source_type == 'RemoteFileV2' and auth_method == 'key' and key_path is None:
+            self.logger.debug('Path to private key was not provided when auth method is key.')
+            result['status'] = 'Failed: Path to private key was not provided when auth method is key.'
+            return False, result
+        elif source_type == 'RemoteFileV2' and path_expression is None:
+            self.logger.debug('Path expression of the files to collect was not provided.')
+            result['status'] = 'Failed: Path expression of the files to collect was not provided.'
+            return False, result
+
+        if source_type == 'SystemStats' and interval is None:
+            self.logger.debug('No interval provided for source type SystemStats.')
+            result['status'] = 'Failed: No interval provided for source type SystemStats.'
             return False, result
 
         params = {'name': name, 'sourceType': source_type}

@@ -23,6 +23,13 @@ class SumoUpdateSource(BaseAction):
             metrics=None,
             cutoff_timestamp=None,
             blacklist=None,
+            remote_hosts=None,
+            remote_port=None,
+            remote_user=None,
+            remote_password=None,
+            key_path=None,
+            key_password=None,
+            auth_method=None,
             interval=None):
 
         self.logger.debug('collector_id: %d', collector_id)
@@ -52,6 +59,8 @@ class SumoUpdateSource(BaseAction):
                 params['timeZone'] = timezone
             if category is not None:
                 params['category'] = category
+            if name is not None:
+                params['name'] = name
             if descr is not None:
                 params['description'] = descr
             if force_timezone is not None:
@@ -80,6 +89,20 @@ class SumoUpdateSource(BaseAction):
                 params['cutoffTimestamp'] = cutoff_timestamp
             if blacklist is not None:
                 params['blacklist'] = blacklist
+            if remote_hosts is not None:
+                params['remoteHosts'] = remote_hosts
+            if remote_port is not None:
+                params['remotePort'] = remote_port
+            if remote_user is not None:
+                params['remoteUser'] = remote_user
+            if remote_password is not None:
+                params['remotePassword'] = remote_password
+            if key_path is not None:
+                params['keyPath'] = key_path
+            if key_password is not None:
+                params['keyPassword'] = key_password
+            if auth_method is not None:
+                params['authMethod'] = auth_method
 
             data = {'source': params}
             res = self._client.update_source(collector_id, data, etag)
