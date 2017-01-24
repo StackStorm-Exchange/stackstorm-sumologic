@@ -1,4 +1,4 @@
-# Place this file as st2microservices.yaml into /opt/stackstorm/configs directory and
+# Place this file as sumologic.yaml into /opt/stackstorm/configs directory and
 # run 'st2ctl reload --register-configs'
 ---
   sumologic_access_id: "abcdefgh"
