@@ -22,6 +22,7 @@ class SumoCreateSource(BaseAction):
             content_type=None,
             metrics=None,
             interval=None,
+            blacklist=None,
             cutoff_timestamp=None):
 
         self.logger.debug('collector_id: %d', collector_id)
@@ -83,6 +84,8 @@ class SumoCreateSource(BaseAction):
             params['interval'] = interval
         if cutoff_timestamp is not None:
             params['cutoffTimestamp'] = cutoff_timestamp
+        if blacklist is not None:
+            params['blacklist'] = blacklist
 
         data = {'source': params}
         res = self._client.create_source(collector_id, data)

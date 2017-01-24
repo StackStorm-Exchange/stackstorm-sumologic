@@ -22,6 +22,7 @@ class SumoUpdateSource(BaseAction):
             content_type=None,
             metrics=None,
             cutoff_timestamp=None,
+            blacklist=None,
             interval=None):
 
         self.logger.debug('collector_id: %d', collector_id)
@@ -77,6 +78,8 @@ class SumoUpdateSource(BaseAction):
                 params['interval'] = interval
             if cutoff_timestamp is not None:
                 params['cutoffTimestamp'] = cutoff_timestamp
+            if blacklist is not None:
+                params['blacklist'] = blacklist
 
             data = {'source': params}
             res = self._client.update_source(collector_id, data, etag)

@@ -87,3 +87,7 @@ parameters:
     required: false
     default: 0
     description: "Cutoff timestamp."
+  blacklist:
+    type: "array"
+    required: false
+    description: "Comma-separated list of valid path expressions from which logs will not be collected."
