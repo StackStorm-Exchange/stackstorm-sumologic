@@ -15,7 +15,6 @@ class SumoCreateSource(BaseAction):
             path_expression=None,
             source_type='LocalFile',
             auto_line_matching=True,
-            alive=True,
             automatic_date_parsing=True,
             multiline_processing_enabled=True,
             encoding=None,
@@ -68,8 +67,6 @@ class SumoCreateSource(BaseAction):
             params['pathExpression'] = path_expression
         if auto_line_matching is not None:
             params['useAutolineMatching'] = auto_line_matching
-        if alive is not None:
-            params['alive'] = alive
         if automatic_date_parsing is not None:
             params['automaticDateParsing'] = automatic_date_parsing
         if multiline_processing_enabled is not None:

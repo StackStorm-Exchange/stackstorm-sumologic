@@ -46,10 +46,6 @@ parameters:
     type: "boolean"
     required: false
     description: "Auto line matching."
-  alive:
-    type: "boolean"
-    required: false
-    description: "Alive or dead."
   automatic_date_parsing:
     type: "boolean"
     required: false
@@ -78,3 +74,7 @@ parameters:
     type: "integer"
     required: false
     description: "Interval."
+  cutoff_timestamp:
+    type: "integer"
+    required: false
+    description: "Cutoff timestamp."

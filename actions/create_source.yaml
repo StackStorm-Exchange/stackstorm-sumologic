@@ -51,11 +51,6 @@ parameters:
     required: false
     default: true
     description: "Auto line matching."
-  alive:
-    type: "boolean"
-    required: false
-    default: true
-    description: "Alive or dead."
   automatic_date_parsing:
     type: "boolean"
     required: false

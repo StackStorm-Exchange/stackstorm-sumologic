@@ -15,13 +15,13 @@ class SumoUpdateSource(BaseAction):
             name=None,
             path_expression=None,
             auto_line_matching=None,
-            alive=None,
             automatic_date_parsing=None,
             multiline_processing_enabled=None,
             encoding=None,
             manual_prefix_regexp=None,
             content_type=None,
             metrics=None,
+            cutoff_timestamp=None,
             interval=None):
 
         self.logger.debug('collector_id: %d', collector_id)
@@ -61,8 +61,6 @@ class SumoUpdateSource(BaseAction):
                 params['pathExpression'] = path_expression
             if auto_line_matching is not None:
                 params['useAutolineMatching'] = auto_line_matching
-            if alive is not None:
-                params['alive'] = alive
             if automatic_date_parsing is not None:
                 params['automaticDateParsing'] = automatic_date_parsing
             if multiline_processing_enabled is not None:
@@ -77,6 +75,8 @@ class SumoUpdateSource(BaseAction):
                 params['metrics'] = metrics
             if interval is not None:
                 params['interval'] = interval
+            if cutoff_timestamp is not None:
+                params['cutoffTimestamp'] = cutoff_timestamp
 
             data = {'source': params}
             res = self._client.update_source(collector_id, data, etag)
