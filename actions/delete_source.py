@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from lib.actions import BaseAction
+import requests
 
 
 class SumoDeleteSource(BaseAction):
@@ -27,6 +28,11 @@ class SumoDeleteSource(BaseAction):
 
         # creating this stupid hash to pass it to delete_source method so it can extract the ID from it
         data = { 'source': { 'id': source_id } }
-        res = self._client.delete_source(collector_id, data)
-        result['status'] = res.status_code
-        return True, result
+        try:
+            res = self._client.delete_source(collector_id, data)
+            result['status'] = res.status_code
+            return True, result
+        except requests.exceptions.HTTPError as e:
+            result['status'] = e
+            return False, result
+
