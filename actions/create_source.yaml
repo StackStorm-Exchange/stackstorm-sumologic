@@ -1,7 +1,7 @@
 ---
 # Action definition metadata
-name: "create.sources"
-description: "Create a sources for a collector."
+name: "create.source"
+description: "Create a source for a collector."
 runner_type: "python-script"
 enabled: true
 entry_point: "create_source.py"
