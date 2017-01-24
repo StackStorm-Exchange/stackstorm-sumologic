@@ -9,3 +9,8 @@
     type: "string"
     default: ""
     secret: true
+  sumologic_collectors_limit:
+    description: "Limit to this number when requesting collectors"
+    type: "integer"
+    default: 1000
+    secret: false

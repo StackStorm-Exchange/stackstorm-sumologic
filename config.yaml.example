@@ -3,3 +3,4 @@
 ---
   sumologic_access_id: "abcdefgh"
   sumologic_access_key: "asda234wefsdf"
+  sumologic_collectors_limit: 1000
