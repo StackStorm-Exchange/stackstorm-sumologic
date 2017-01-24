@@ -1,0 +1,16 @@
+---
+# Action definition metadata
+name: "delete.source"
+description: "Delete source for a collector."
+runner_type: "python-script"
+enabled: true
+entry_point: "delete_source.py"
+parameters:
+  collector_id:
+    type: "integer"
+    required: true
+    description: "ID of the collectors to delete the source for."
+  source_id:
+    type: "integer"
+    required: true
+    description: "ID of the source to delete."

@@ -9,7 +9,7 @@ parameters:
   collector_id:
     type: "integer"
     required: true
-    description: "ID of the collectors to create the sources for."
+    description: "ID of the collectors to create a source for."
   timezone:
     type: "string"
     required: false
