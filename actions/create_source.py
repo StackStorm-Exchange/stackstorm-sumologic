@@ -87,5 +87,6 @@ class SumoCreateSource(BaseAction):
         if cutoff_timestamp is not None:
             params['cutoffTimestamp'] = cutoff_timestamp
 
-        result = self._client.create_source(collector_id, params)
-        return True, result
+        data = {'source': params}
+        res = self._client.create_source(collector_id, data)
+        return True, res.json()
