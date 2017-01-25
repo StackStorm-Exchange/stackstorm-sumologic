@@ -1,7 +1,7 @@
 ---
 # Action definition metadata
 name: "get.collectors"
-description: "Get a list of collectors by their name."
+description: "Get a list of collectors by their name. Returns array of objects."
 runner_type: "python-script"
 enabled: true
 entry_point: "get_collectors.py"

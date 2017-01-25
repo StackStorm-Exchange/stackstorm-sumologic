@@ -4,7 +4,7 @@ from lib.actions import BaseAction
 import lib.utils
 
 
-class SumoGetId(BaseAction):
+class SumoGetCollectorsId(BaseAction):
     def run(self, keyword=None):
         self.logger.debug('keyword: %s', keyword)
 

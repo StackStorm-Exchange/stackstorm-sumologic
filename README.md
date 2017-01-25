@@ -7,6 +7,7 @@ Pack is mainly used to manipulate SumoLogic collectors and sources. Yet, incompl
 
 ## Change log
 
+0.9.6 - Renamed action `get.id` to `get.collectors.id`, some cosmetics changes. Documentation update.
 0.9.5 - Added README and updated icon.
 0.9.4 - Initial release. So far it does everything we need.
 
@@ -20,10 +21,10 @@ Pack is mainly used to manipulate SumoLogic collectors and sources. Yet, incompl
 
 * `create.source` - Create source for a collector.
 * `delete.source` - Delete source for a collector.
-* `get.collector` - Get collector by id or name with all its properties.
-* `get.collectors` - Get a list of collectors by their name with all their properties.
-* `get.id` - Get ID or IDs of collectors.
-* `get.sources` - Get a list of sources by ID of collector.
+* `get.collector` - Get collector by id or name with all its properties. Returns object.
+* `get.collectors` - Get a list of collectors by their name with all their properties. Returns array of objects found.
+* `get.collectors.id` - Get ID or IDs of collectors. Returns array of integers.
+* `get.sources` - Get a list of sources by ID of collector. Returns array of objects.
 * `update.source` - Update source for a collector.
 
 ## Known limitations
