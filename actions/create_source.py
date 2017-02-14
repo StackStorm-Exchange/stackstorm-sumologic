@@ -55,22 +55,39 @@ class SumoCreateSource(BaseAction):
             result['status'] = 'Failed: No file path was provided for source type LocalFile.'
             return False, result
 
-        if source_type == 'RemoteFileV2' and (remote_hosts is None or remote_port is None or remote_user is None):
-            self.logger.debug('No remote host/port or user was provided for source type RemoteFileV2.')
-            result['status'] = 'Failed: No remote host/port or user was provided for source type RemoteFileV2.'
+        if source_type == 'RemoteFileV2' and (remote_hosts is None or
+                                              remote_port is None or
+                                              remote_user is None):
+            self.logger.debug(
+                'No remote host/port or user was provided for source type RemoteFileV2.'
+            )
+            result['status'] = 'Failed: ' + \
+                'No remote host/port or user was provided for source type RemoteFileV2.'
             return False, result
-        elif source_type == 'RemoteFileV2' and (auth_method is None or auth_method != 'password' or auth_method != 'key'):
-            self.logger.debug('Cannot recognize auth method for source type RemoteFileV2. Can be password or key only.')
-            result['status'] = 'Failed: Cannot recognize auth method for source type RemoteFileV2. Can be password or key only.'
+
+        elif source_type == 'RemoteFileV2' and (auth_method is None or
+                                                auth_method != 'password' or
+                                                auth_method != 'key'):
+            self.logger.debug(
+                'Cannot recognize auth method for source type RemoteFileV2. ' +
+                'Can be password or key only.')
+            result['status'] = 'Failed: ' + \
+                'Cannot recognize auth method for source type RemoteFileV2. ' + \
+                'Can be password or key only.'
             return False, result
-        elif source_type == 'RemoteFileV2' and auth_method == 'password' and remote_password is None:
+
+        elif source_type == 'RemoteFileV2' and (auth_method == 'password' and
+                                                remote_password is None):
             self.logger.debug('Password was not provided when auth method is password.')
             result['status'] = 'Failed: Password was not provided when auth method is password.'
             return False, result
+
         elif source_type == 'RemoteFileV2' and auth_method == 'key' and key_path is None:
             self.logger.debug('Path to private key was not provided when auth method is key.')
-            result['status'] = 'Failed: Path to private key was not provided when auth method is key.'
+            result['status'] = 'Failed: ' + \
+                'Path to private key was not provided when auth method is key.'
             return False, result
+
         elif source_type == 'RemoteFileV2' and path_expression is None:
             self.logger.debug('Path expression of the files to collect was not provided.')
             result['status'] = 'Failed: Path expression of the files to collect was not provided.'

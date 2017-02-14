@@ -26,8 +26,9 @@ class SumoDeleteSource(BaseAction):
             result['status'] = 'No source ID was provided.'
             return False, result
 
-        # creating this stupid hash to pass it to delete_source method so it can extract the ID from it
-        data = { 'source': { 'id': source_id } }
+        # creating this stupid hash to pass it to delete_source method so it can
+        # extract the ID from it
+        data = {'source': {'id': source_id}}
         try:
             res = self._client.delete_source(collector_id, data)
             result['status'] = res.status_code
@@ -35,4 +36,3 @@ class SumoDeleteSource(BaseAction):
         except requests.exceptions.HTTPError as e:
             result['status'] = str(e)
             return False, result
-
