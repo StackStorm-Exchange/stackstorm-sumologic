@@ -1,0 +1,6 @@
+# Place this file as sumologic.yaml into /opt/stackstorm/configs directory and
+# run 'st2ctl reload --register-configs'
+---
+  sumologic_access_id: "abcdefgh"
+  sumologic_access_key: "asda234wefsdf"
+  sumologic_collectors_limit: 1000

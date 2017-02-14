@@ -1,0 +1,18 @@
+---
+# Action definition metadata
+name: "get.collector"
+description: "Get collector by id or name. Returns object of the collector, if found."
+runner_type: "python-script"
+enabled: true
+entry_point: "get_collector.py"
+parameters:
+  collector_id:
+    type: "integer"
+    required: false
+    description: "ID of the collector to get."
+    default: 0
+  collector_name:
+    type: "string"
+    required: false
+    description: "Exact name of the collector to get."
+

@@ -1,0 +1,16 @@
+---
+  sumologic_access_id:
+    description: "SumoLogic Access ID"
+    type: "string"
+    default: ""
+    secret: true
+  sumologic_access_key:
+    description: "SumoLogic Access Key"
+    type: "string"
+    default: ""
+    secret: true
+  sumologic_collectors_limit:
+    description: "Limit to this number when requesting collectors"
+    type: "integer"
+    default: 1000
+    secret: false

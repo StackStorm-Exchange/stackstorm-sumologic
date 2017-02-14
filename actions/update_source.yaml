@@ -1,0 +1,113 @@
+---
+# Action definition metadata
+name: "update.source"
+description: "Update a source for a collector."
+runner_type: "python-script"
+enabled: true
+entry_point: "update_source.py"
+parameters:
+  collector_id:
+    type: "integer"
+    required: true
+    description: "ID of the collectors to update the sources for."
+  source_id:
+    type: "integer"
+    required: true
+    description: "ID of the source to update."
+  timezone:
+    type: "string"
+    required: false
+    description: "Timezone used in the timestamps of the logs."
+  category:
+    type: "string"
+    required: false
+    description: "Category for the source."
+  descr:
+    type: "string"
+    required: false
+    description: "Description of the source."
+  force_timezone:
+    type: "boolean"
+    required: false
+    description: "Force timezone."
+  hostname:
+    type: "string"
+    required: false
+    description: "Hostname for the source."
+  name:
+    type: "string"
+    required: false
+    description: "Name of the source."
+  path_expression:
+    type: "string"
+    required: false
+    description: "Path expression."
+  auto_line_matching:
+    type: "boolean"
+    required: false
+    description: "Auto line matching."
+  automatic_date_parsing:
+    type: "boolean"
+    required: false
+    description: "Automatic Date Parsing."
+  multiline_processing_enabled:
+    type: "boolean"
+    required: false
+    description: "Multiline processing."
+  encoding:
+    type: "string"
+    required: false
+    description: "Logs encoding."
+  manual_prefix_regexp:
+    type: "string"
+    required: false
+    description: "Boundary Regex - Expression to match message boundary e.g. (?<!\\)(\r+)"
+  content_type:
+    type: "string"
+    required: false
+    description: "Content type, e.g. HostMetrics"
+  metrics:
+    type: "array"
+    required: false
+    description: "Metrics."
+  interval:
+    type: "integer"
+    required: false
+    description: "Interval."
+  cutoff_timestamp:
+    type: "integer"
+    required: false
+    description: "Cutoff timestamp."
+  blacklist:
+    type: "array"
+    required: false
+    description: "Comma-separated list of valid path expressions from which logs will not be collected."
+  remote_hosts:
+    type: "array"
+    required: false
+    description: "Host name of remote machine(s)."
+  remote_port:
+    type: "integer"
+    required: false
+    description: "Port of remote machine (SSH)."
+  remote_user:
+    type: "string"
+    required: false
+    description: "User account to connect with the remote machine."
+  remote_password:
+    type: "string"
+    required: false
+    description: "Password used to connect to remote machine. Required only when authMethod is set to password."
+  key_path:
+    type: "string"
+    required: false
+    description: "Path to SSH key used to connect to the remote machine. Required only when authMethod is set to key."
+  key_password:
+    type: "string"
+    required: false
+    description: "Password to SSH key to connect to the remote machine, required only with authMethod is set to key."
+  auth_method:
+    type: "string"
+    required: false
+    description: "Authentication method used to connect to the remote machine. Options are \"password\" to connect with a password, or \"key\" to connect with an SSH key."
+

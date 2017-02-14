@@ -1,0 +1,17 @@
+---
+# Action definition metadata
+name: "get.collectors"
+description: "Get a list of collectors by their name. Returns array of objects."
+runner_type: "python-script"
+enabled: true
+entry_point: "get_collectors.py"
+parameters:
+  keyword:
+    type: "string"
+    required: true
+    description: "Name of the collectors to search for."
+  exact_match:
+    type: "boolean"
+    required: false
+    default: false
+    description: "Search with exact match or occurrence of the keyword."
