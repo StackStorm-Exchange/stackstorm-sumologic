@@ -65,11 +65,11 @@ class SumoCreateSource(BaseAction):
                 'No remote host/port or user was provided for source type RemoteFileV2.'
             return False, result
 
-        elif source_type == 'RemoteFileV2' and (auth_method is None or 
-                                                auth_method != 'password' or 
+        elif source_type == 'RemoteFileV2' and (auth_method is None or
+                                                auth_method != 'password' or
                                                 auth_method != 'key'):
             self.logger.debug(
-                'Cannot recognize auth method for source type RemoteFileV2. ' + \
+                'Cannot recognize auth method for source type RemoteFileV2. ' +
                 'Can be password or key only.')
             result['status'] = 'Failed: ' + \
                 'Cannot recognize auth method for source type RemoteFileV2. ' + \
