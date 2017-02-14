@@ -36,4 +36,3 @@ class SumoDeleteSource(BaseAction):
         except requests.exceptions.HTTPError as e:
             result['status'] = str(e)
             return False, result
-
