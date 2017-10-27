@@ -3,6 +3,6 @@ name: sumologic
 description: SumoLogic Integration
 keywords:
     - sumologic
-version: 0.9.6
+version: 0.9.7
 author: Igor Cherkaev
 email: igor.cherkaev@copart.com
