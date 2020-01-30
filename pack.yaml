@@ -6,3 +6,6 @@ keywords:
 version: 0.9.7
 author: Igor Cherkaev
 email: igor.cherkaev@copart.com
+python_versions:
+  - "2"
+  - "3"
