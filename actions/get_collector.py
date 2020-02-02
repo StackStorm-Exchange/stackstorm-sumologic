@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-from lib.actions import BaseAction
-import lib.utils
+from .lib.actions import BaseAction
+import .lib.utils
 
 
 class SumoGetCollector(BaseAction):

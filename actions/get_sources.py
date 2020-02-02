@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from lib.actions import BaseAction
+from .lib.actions import BaseAction
 
 
 class SumoGetSources(BaseAction):
