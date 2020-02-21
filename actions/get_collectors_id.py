@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-from .lib.actions import BaseAction
-import lib.utils
+from lib.actions import BaseAction
+from lib.utils import find_by_field
 
 
 class SumoGetCollectorsId(BaseAction):
@@ -14,5 +14,5 @@ class SumoGetCollectorsId(BaseAction):
             return False, result
 
         collectors = self._client.collectors(self._sumologic_collectors_limit)
-        c = lib.utils.find_by_field(collectors, 'name', keyword, False)
+        c = find_by_field(collectors, 'name', keyword, False)
         return True, [d['id'] for d in c if 'id' in d]
